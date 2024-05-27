@@ -8,7 +8,7 @@ import random
 # "default" loop and so cannot be used with the event loop created with asyncio.run().
 #so i initiated semaphore from main
 
-BASE_URL = 'https://erowid.org/experiences/'
+BASE_URL = 'https://erowid.org/experiences/exp.cgi'
 ## it will take more time, but at least I wont be doing some bodged up thing with proxies for requests
 contents = set()
 
@@ -78,7 +78,7 @@ def format_experience_page_content(exp_pages_content):
             content = start_comment.find_all_next(string=True)
             page_report = content[:content.index(end_comment)]
             body_text = ''.join(page_report)
-            trs = exp_content.select('table[class="footdata"] > tr ')
+            trs = exp_content.select('table[class="footdata"]>tr ')
 
 
             author_dict={
